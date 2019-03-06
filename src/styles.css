@@ -1,0 +1,27 @@
+.country-list {
+    list-style-type: none;
+}
+
+.country-box {
+    background-color: #4e5b69bb;
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    position: relative;
+}
+
+.country-box--close {
+    border: none;
+    background: transparent;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.country-box--close:hover {
+    font-size: 15px;
+}

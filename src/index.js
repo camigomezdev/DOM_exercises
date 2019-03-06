@@ -37,31 +37,123 @@ let preInit = (callback) => {
 const initPage = (data) => {
   // Show country list in the DOM
   showCountries(data);
+  //getRandomCountry(data);
+  loadData();
 
+  paintOdds();
+  addDeleteButtons();
   // call your functions here 
 
+}
+
+const loadData = () => {
+  data = {
+    name: 'juan',
+    email: '<script>alert("attack!");</script>'
+  }
+  var userDiv = document.createElement('DIV')
+  userDiv.innerHTML = `${data.email}`;
+  document.body.appendChild(userDiv);
+}
+
+function alertame() {
+  alert("hola!");
 }
 
 /**
  * Takes the data object and appends it to the DOM in a organized list.
  * @param {object} data 
  */
-let showCountries = (data) => {
+const showCountries = (data) => {
   // Gets the contaienr to add the country list.
-  let listContainer = document.getElementById("countries_content")
-  // creates our list and adds the initial tag.
-  let countryList = '<ul>';
-  // Goes through each entry in data and treats it as "country"
+  let listContainer = document.getElementById("countries_content");
+
+  let countryList = '<ul class="country-list">';
+ 
   data.forEach(country => {
-    // adds each country formatted inside and LI to our UL.
-    // this line is using backtick notation, can be writen like '<li>' + country.name +'</li>'
-    // in an "old" way, which is ok if you prefer it.
-    countryList += `<li>${country.name}</li>` 
+
+    countryList += `<li id="${country.name}" class="list-item"><div class="country-box"><p>Country: ${country.name}</p><p>Capital: ${country.capital}</p></div></li>`;
   });
-  // adds the closing tag to our list.
-  countryList += '</ul>'
-  // append the list contents to the container in the DOM.
+
+  countryList += '</ul>';
+
   listContainer.innerHTML = countryList;
+}
+
+const getRandomCountry = (data) => {
+  let randomCountry;
+  let randomPick = Math.floor(Math.random()*data.length);
+
+  randomCountry = data[randomPick];
+
+  document.getElementById('random-country').innerHTML = `${randomCountry.name} - ${randomCountry.capital}`;
+  console.log(randomCountry.name + " " + randomCountry.capital);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// check if number is odd or not
+function isOdd(num) { return !!(num % 2);}
+
+// paint odd entries in list red
+const paintOdds = () => {
+  let listContainer = document.getElementById("countries_content");
+  let list = listContainer.firstChild;
+
+  list.childNodes.forEach((node,index) => {
+    if (isOdd(index)) {
+      node.firstChild.style.backgroundColor = '#1f252cbb';
+    }
+  });
+}
+
+const addDeleteButtons = () => {
+  let listContainer = document.getElementById("countries_content");
+  let list = listContainer.firstChild;
+
+  list.childNodes.forEach((node) => {  
+
+      let closeButton = document.createElement("BUTTON");
+      closeButton.classList.add('country-box--close');
+      let closeButtonText = document.createTextNode("X");
+      closeButton.appendChild(closeButtonText); 
+      closeButton.addEventListener('click', obliterateGrandParent)
+      
+      node.firstChild.appendChild(closeButton); 
+  });
+
+}
+
+for (let index = 0; index < array.length; index++) {
+  const element = array[index];
+  
+}
+
+const obliterateGrandParent = (e) => {
+
+  let assasinationTarget = e.target.parentNode.parentNode;
+  removeElement(assasinationTarget);
+  
+}
+
+const removeElement = (element) => {
+  element.parentNode.removeChild(element);
 }
 
 // Running the API call and passing initPage as a callback to start all page operations.
