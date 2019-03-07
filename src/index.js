@@ -41,28 +41,22 @@ const initPage = (data) => {
   // call your functions here 
 
 }
-
 /**
  * Takes the data object and appends it to the DOM in a organized list.
  * @param {object} data 
  */
-let showCountries = (data) => {
+const showCountries = (data) => {
   // Gets the contaienr to add the country list.
   let listContainer = document.getElementById("countries_content")
   // creates our list and adds the initial tag.
   let countryList = '<ul>';
   // Goes through each entry in data and treats it as "country"
   data.forEach(country => {
-    // adds each country formatted inside and LI to our UL.
-    // this line is using backtick notation, can be writen like '<li>' + country.name +'</li>'
-    // in an "old" way, which is ok if you prefer it.
-    countryList += `<li>${country.name}</li>` 
+
+    countryList += `<li id="${country.name}" class="list-item"><div class="country-box"><p>Country: ${country.name}</p><p>Capital: ${country.capital}</p></div></li>`;
   });
-  // adds the closing tag to our list.
-  countryList += '</ul>'
-  // append the list contents to the container in the DOM.
+
+  countryList += '</ul>';
+
   listContainer.innerHTML = countryList;
 }
-
-// Running the API call and passing initPage as a callback to start all page operations.
-preInit(initPage);
