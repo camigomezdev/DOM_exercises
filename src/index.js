@@ -59,14 +59,12 @@ const showCountries = (data) => {
 
     countryList += `<li id="${country.name}" class="list-item"><div class="country-box"><p>Country: ${country.name}</p><p>Capital: ${country.capital}</p></div></li>`;
   });
-   // adds the closing tag to our list.
-   countryList += '</ul>'
-   // append the list contents to the container in the DOM.
-
-  countryList += '</ul>';
+  // adds the closing tag to our list.
+  countryList += '</ul>'
+  // append the list contents to the container in the DOM.
 
   listContainer.innerHTML = countryList;
 }
 
 // Running the API call and passing initPage as a callback to start all page operations.
-preInit(initPage); 
+preInit(initPage);
