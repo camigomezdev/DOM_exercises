@@ -87,4 +87,7 @@ You can read more about this [here](https://www.mulesoft.com/resources/api/what-
 
 _This makes part of string interpolation on template literals handling part of the the ES6 implementation of javascript, it may seem confusing at first but in the long run can make your code look and feel cleaner._
 
+#### Why `` `text ${variable} text` `` instead of `'text' + variable +'text'`
+
+_This makes part of string interpolation on template literals handling part of the the ES6 implementation of javascript, it may seem confusing at first but in the long run can make your code look and feel cleaner._
 You can read more about this [here](https://medium.com/predict/switching-to-es6-part-2-string-interpolation-and-template-literals-2f1b0ee56740)
