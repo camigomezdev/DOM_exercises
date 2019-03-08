@@ -11,7 +11,9 @@
 
 4. Do the suggested exercises.
 
-### Exercises
+## Exercises
+
+### DOM Manipulation
 
 :memo: Implement the following features:
 
@@ -26,6 +28,30 @@
 - :heavy_check_mark: Change the color of an element on click.
 
 - :nail_care: Add styles.
+
+### CSS Excercises
+Apply styles:
+
+For all the document
+- Include the font Gill Sans.
+
+For the list container
+- Make 5 columns for the children elements.
+- The children elements should ocupy the 100% of the window width.
+
+For all the elements from the list
+- Margin in all sides of 2 pixels.
+- Gray background.
+- The text color must be white.
+- Height of 50 pixels.
+- Centered text, vertically and horizontally.
+
+For only the odd elements
+- Gold background color.
+
+Just for Colombia and Jamaica
+- Red background color.
+
 
 ### Resources
 
